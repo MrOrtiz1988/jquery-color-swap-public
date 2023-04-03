@@ -6,19 +6,22 @@ $(document).ready(onReady);
 let num = 0;
 
 function onReady(){
-    console.log('jq working');
     $('.generate-btn').on('click', handleGenerate);
+    $('.container').on('click', '.turn-yellow', turnYellow)
 }
 
 function handleGenerate(){
-console.log('being clicked');
     num++;
 
     $('.container').append(`
     <div class="new-div">
         <p>${num}</p>
-        <button>Yellow</button>
+        <button class="turn-yellow">Yellow</button>
         <button>Delete</button>
     </div>
     `);
+}
+
+function turnYellow(){
+    $(this).parent().css('background-color', 'yellow');
 }
